@@ -25,6 +25,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Nunito', sans-serif;
       background: var(--crema);
@@ -126,7 +130,7 @@
       margin-bottom: 32px;
     }
 
-    /* BOTONES */
+    /* BOTONES PRINCIPALES */
     .hero-buttons {
       display: flex;
       align-items: center;
@@ -194,7 +198,7 @@
       box-shadow: 0 20px 50px rgba(52, 75, 56, 0.12);
     }
 
-    /* TARJETA DECORATIVA */
+    /* TARJETA FLOTANTE */
     .floating-card {
       position: absolute;
       z-index: 2;
@@ -416,6 +420,139 @@
       font-size: 0.95rem;
     }
 
+    /* SOBRE NOSOTROS */
+    .about {
+      padding: 85px 8%;
+      background: #E8EDE3;
+      scroll-margin-top: 20px;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      position: relative;
+      padding: 15px;
+    }
+
+    .about-image img {
+      display: block;
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 180px 180px 24px 24px;
+      box-shadow: 0 15px 35px rgba(52, 75, 56, 0.12);
+    }
+
+    .about-badge {
+      position: absolute;
+      right: -5px;
+      bottom: 35px;
+      background: var(--blanco);
+      color: var(--verde-profundo);
+      padding: 18px 22px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(52, 75, 56, 0.12);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .about-badge span {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    .about-text .about-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--blanco);
+      color: var(--verde-oscuro);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--verde-profundo);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+
+    .about-text h2 span {
+      color: var(--verde-oscuro);
+    }
+
+    .about-text p {
+      color: #68776A;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--verde-profundo);
+      font-weight: 800;
+    }
+
+    .about-value span {
+      color: var(--verde-oscuro);
+      font-size: 1.3rem;
+    }
+
+    .about-button {
+      display: inline-block;
+      padding: 14px 25px;
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.3s;
+    }
+
+    .about-button:hover {
+      background: var(--verde-profundo);
+      transform: translateY(-3px);
+    }
+
+    /* PIE DE PÁGINA */
+    .footer {
+      padding: 30px 8%;
+      background: var(--verde-profundo);
+      color: var(--blanco);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: #DCE7D6;
+      text-decoration: none;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1050px) {
       .products-grid {
@@ -443,6 +580,29 @@
 
       .floating-card {
         left: -10px;
+      }
+
+      .about-container {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .about {
+        padding: 60px 7%;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 350px;
+      }
+
+      .about-badge {
+        right: 0;
+        bottom: 25px;
       }
     }
 
@@ -532,15 +692,27 @@
       .product-info {
         padding: 20px;
       }
+
+      .about-values {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 300px;
+      }
+
+      .footer {
+        padding: 25px 6%;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- PORTADA PRINCIPAL -->
   <main class="hero">
 
-    <!-- NAVEGACIÓN -->
     <nav class="navbar">
       <a href="#" class="logo">Pequeños <span>Sueños</span> 🌿</a>
 
@@ -549,7 +721,6 @@
       </a>
     </nav>
 
-    <!-- PORTADA -->
     <section class="hero-content">
 
       <div class="hero-text">
@@ -664,7 +835,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=85"
-            alt="Productos suaves para el descanso del bebé"
+            alt="Productos para el descanso del bebé"
             loading="lazy"
           >
           <span class="product-label">Favorito</span>
@@ -689,7 +860,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1604917877934-07d8d248d396?auto=format&fit=crop&w=700&q=85"
-            alt="Artículos infantiles"
+            alt="Accesorios infantiles"
             loading="lazy"
           >
           <span class="product-label">Especial</span>
@@ -741,6 +912,94 @@
     </div>
 
   </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="about" id="nosotros">
+
+    <div class="about-container">
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85"
+          alt="Familia compartiendo un momento especial"
+          loading="lazy"
+        >
+
+        <div class="about-badge">
+          <span>♡</span>
+          Hecho con amor
+        </div>
+      </div>
+
+      <div class="about-text">
+
+        <span class="about-tag">🌿 Conoce nuestra historia</span>
+
+        <h2>
+          Más que una tienda,<br>
+          <span>un mundo de ternura.</span>
+        </h2>
+
+        <p>
+          En Pequeños Sueños creemos que los primeros momentos
+          de un bebé son recuerdos que duran para siempre.
+          Por eso, queremos acompañar a cada familia con
+          productos pensados para brindar comodidad, cariño
+          y alegría.
+        </p>
+
+        <p>
+          Seleccionamos cada detalle con dedicación para que
+          encuentres artículos especiales para tu pequeño,
+          desde sus primeros días hasta sus nuevas aventuras.
+        </p>
+
+        <div class="about-values">
+
+          <div class="about-value">
+            <span>♡</span>
+            <div>Amor en cada detalle</div>
+          </div>
+
+          <div class="about-value">
+            <span>✿</span>
+            <div>Selección cuidadosa</div>
+          </div>
+
+          <div class="about-value">
+            <span>🌱</span>
+            <div>Calidez y ternura</div>
+          </div>
+
+          <div class="about-value">
+            <span>✓</span>
+            <div>Atención cercana</div>
+          </div>
+
+        </div>
+
+        <a href="#productos" class="about-button">
+          Descubre nuestros productos →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>
+      🌿 <strong>Pequeños Sueños</strong> — Tienda para bebés
+    </p>
+    <p>
+      Hecho con amor para los más pequeños. ♡
+    </p>
+    <p>
+      © 2026 Pequeños Sueños. Todos los derechos reservados.
+    </p>
+  </footer>
 
 </body>
 </html>
