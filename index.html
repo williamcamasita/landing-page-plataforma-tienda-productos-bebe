@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pequeños Sueños | Tienda para bebés</title>
+  <meta name="description" content="Descubre ropa, accesorios y productos especiales para tu bebé en Pequeños Sueños.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +19,8 @@
       --crema: #F7F7F0;
       --blanco: #FFFFFF;
       --texto: #34443A;
+      --verde-claro: #E4EBDD;
+      --fondo-verde: #E8EDE3;
     }
 
     * {
@@ -27,31 +31,33 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
 
     body {
       font-family: 'Nunito', sans-serif;
       background: var(--crema);
       color: var(--texto);
+      line-height: 1.6;
     }
 
-    /* PORTADA PRINCIPAL */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background: var(--crema);
+    img {
+      max-width: 100%;
     }
 
-    /* BARRA SUPERIOR */
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* NAVEGACIÓN */
     .navbar {
       width: 100%;
-      padding: 24px 8%;
+      padding: 22px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 25px;
+      background: var(--crema);
     }
 
     .logo {
@@ -67,24 +73,46 @@
       color: var(--verde-oscuro);
     }
 
-    .cart-button {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border: 1px solid var(--verde-suave);
-      border-radius: 30px;
-      text-decoration: none;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .nav-links a {
       color: var(--verde-profundo);
-      font-weight: 700;
-      transition: 0.3s;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: color 0.3s;
     }
 
-    .cart-button:hover {
-      background: var(--verde-suave);
+    .nav-links a:hover {
+      color: var(--verde-oscuro);
     }
 
-    /* CONTENIDO HERO */
+    .nav-links .nav-cta {
+      padding: 10px 17px;
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      border-radius: 25px;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: var(--verde-profundo);
+    }
+
+    /* PORTADA */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--crema);
+    }
+
     .hero-content {
       flex: 1;
       display: grid;
@@ -102,7 +130,7 @@
       display: inline-block;
       padding: 9px 17px;
       margin-bottom: 25px;
-      background: #E4EBDD;
+      background: var(--verde-claro);
       color: var(--verde-oscuro);
       border-radius: 30px;
       font-size: 0.9rem;
@@ -130,7 +158,6 @@
       margin-bottom: 32px;
     }
 
-    /* BOTONES PRINCIPALES */
     .hero-buttons {
       display: flex;
       align-items: center;
@@ -169,7 +196,7 @@
       color: var(--verde-profundo);
     }
 
-    /* IMAGEN PRINCIPAL */
+    /* IMAGEN DE PORTADA */
     .hero-image {
       position: relative;
       min-height: 480px;
@@ -198,7 +225,6 @@
       box-shadow: 0 20px 50px rgba(52, 75, 56, 0.12);
     }
 
-    /* TARJETA FLOTANTE */
     .floating-card {
       position: absolute;
       z-index: 2;
@@ -221,7 +247,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: #E4EBDD;
+      background: var(--verde-claro);
       border-radius: 50%;
       font-size: 1.4rem;
     }
@@ -244,7 +270,7 @@
       flex-wrap: wrap;
       gap: 35px;
       padding: 22px 8%;
-      background: #E8EDE3;
+      background: var(--fondo-verde);
     }
 
     .benefit {
@@ -260,31 +286,25 @@
       font-size: 1.2rem;
     }
 
-    /* PRODUCTOS DESTACADOS */
-    .products {
-      padding: 85px 8%;
-      background: var(--crema);
-      scroll-margin-top: 20px;
-    }
-
-    .products-header {
+    /* ESTILOS GENERALES DE TÍTULOS */
+    .section-header {
       text-align: center;
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto 45px;
     }
 
-    .products-tag {
+    .section-tag {
       display: inline-block;
       padding: 8px 16px;
       margin-bottom: 16px;
-      background: #E4EBDD;
+      background: var(--verde-claro);
       color: var(--verde-oscuro);
       border-radius: 30px;
       font-size: 0.9rem;
       font-weight: 800;
     }
 
-    .products-header h2 {
+    .section-header h2 {
       font-family: 'Poppins', sans-serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
       line-height: 1.25;
@@ -292,14 +312,85 @@
       margin-bottom: 15px;
     }
 
-    .products-header h2 span {
+    .section-header h2 span {
       color: var(--verde-oscuro);
     }
 
-    .products-header p {
+    .section-header p {
       color: #68776A;
       font-size: 1.05rem;
       line-height: 1.8;
+    }
+
+    /* CATEGORÍAS */
+    .categories {
+      padding: 85px 8%;
+      background: var(--fondo-verde);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .category-card {
+      position: relative;
+      min-height: 320px;
+      background: var(--blanco);
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(52, 75, 56, 0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(52, 75, 56, 0.13);
+    }
+
+    .category-card img {
+      display: block;
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-info {
+      padding: 18px;
+    }
+
+    .category-info h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      color: var(--verde-profundo);
+      margin-bottom: 6px;
+    }
+
+    .category-info p {
+      color: #68776A;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .category-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--verde-oscuro);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    /* PRODUCTOS DESTACADOS */
+    .products {
+      padding: 85px 8%;
+      background: var(--crema);
     }
 
     .products-grid {
@@ -324,9 +415,9 @@
 
     .product-image {
       position: relative;
-      height: 245px;
+      height: 235px;
       overflow: hidden;
-      background: #E8EDE3;
+      background: var(--fondo-verde);
     }
 
     .product-image img {
@@ -346,7 +437,7 @@
       top: 14px;
       left: 14px;
       padding: 7px 12px;
-      background: #E4EBDD;
+      background: var(--verde-claro);
       color: var(--verde-profundo);
       border-radius: 20px;
       font-size: 0.75rem;
@@ -423,8 +514,7 @@
     /* SOBRE NOSOTROS */
     .about {
       padding: 85px 8%;
-      background: #E8EDE3;
-      scroll-margin-top: 20px;
+      background: var(--crema);
     }
 
     .about-container {
@@ -472,7 +562,7 @@
     .about-text .about-tag {
       display: inline-block;
       padding: 8px 16px;
-      background: var(--blanco);
+      background: var(--verde-claro);
       color: var(--verde-oscuro);
       border-radius: 30px;
       font-size: 0.9rem;
@@ -535,6 +625,49 @@
       transform: translateY(-3px);
     }
 
+    /* CONTACTO */
+    .contact {
+      padding: 75px 8%;
+      background: var(--fondo-verde);
+      text-align: center;
+    }
+
+    .contact-box {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 42px 30px;
+      background: var(--blanco);
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(52, 75, 56, 0.06);
+    }
+
+    .contact-box h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--verde-profundo);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #68776A;
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 14px 25px;
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: background 0.3s;
+    }
+
+    .contact-button:hover {
+      background: var(--verde-profundo);
+    }
+
     /* PIE DE PÁGINA */
     .footer {
       padding: 30px 8%;
@@ -553,33 +686,19 @@
       text-decoration: none;
     }
 
-    /* RESPONSIVE */
+    /* TABLETAS */
     @media (max-width: 1050px) {
+      .categories-grid,
       .products-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-    }
 
-    @media (max-width: 900px) {
+      .nav-links {
+        gap: 13px;
+      }
+
       .hero-content {
         gap: 35px;
-        padding: 35px 6% 60px;
-      }
-
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-
-      .hero-image {
-        min-height: 390px;
-      }
-
-      .hero-image img {
-        height: 390px;
-      }
-
-      .floating-card {
-        left: -10px;
       }
 
       .about-container {
@@ -587,36 +706,24 @@
       }
     }
 
-    @media (max-width: 800px) {
-      .about {
-        padding: 60px 7%;
-      }
-
-      .about-container {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image img {
-        height: 350px;
-      }
-
-      .about-badge {
-        right: 0;
-        bottom: 25px;
-      }
-    }
-
-    @media (max-width: 650px) {
+    /* MÓVILES */
+    @media (max-width: 700px) {
       .navbar {
         padding: 20px 6%;
+        flex-direction: column;
+        gap: 15px;
       }
 
       .logo {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
-      .cart-button {
-        padding: 9px 12px;
+      .nav-links {
+        justify-content: center;
+        gap: 12px 18px;
+      }
+
+      .nav-links a {
         font-size: 0.85rem;
       }
 
@@ -629,11 +736,6 @@
       .hero-text {
         text-align: center;
         margin: auto;
-      }
-
-      .tag {
-        font-size: 0.8rem;
-        margin-bottom: 20px;
       }
 
       .hero-text h1 {
@@ -672,37 +774,71 @@
         flex-direction: column;
       }
 
-      .products {
+      .categories,
+      .products,
+      .about,
+      .contact {
         padding: 60px 6%;
       }
 
-      .products-header {
+      .section-header {
         margin-bottom: 30px;
       }
 
+      .categories-grid,
       .products-grid {
         grid-template-columns: 1fr;
         gap: 22px;
+      }
+
+      .category-card {
+        min-height: auto;
+      }
+
+      .category-card img {
+        height: 250px;
       }
 
       .product-image {
         height: 280px;
       }
 
-      .product-info {
-        padding: 20px;
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-image img {
+        height: 320px;
+      }
+
+      .about-badge {
+        right: 0;
+        bottom: 25px;
       }
 
       .about-values {
         grid-template-columns: 1fr;
       }
 
-      .about-image img {
-        height: 300px;
+      .contact-box {
+        padding: 32px 20px;
       }
 
       .footer {
         padding: 25px 6%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -710,16 +846,20 @@
 
 <body>
 
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <a href="#inicio" class="logo">Pequeños <span>Sueños</span> 🌿</a>
+
+    <div class="nav-links">
+      <a href="#categorias">Categorías</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto" class="nav-cta">Contacto ♡</a>
+    </div>
+  </nav>
+
   <!-- PORTADA PRINCIPAL -->
-  <main class="hero">
-
-    <nav class="navbar">
-      <a href="#" class="logo">Pequeños <span>Sueños</span> 🌿</a>
-
-      <a href="#productos" class="cart-button">
-        🛍️ Ver productos
-      </a>
-    </nav>
+  <main class="hero" id="inicio">
 
     <section class="hero-content">
 
@@ -781,17 +921,91 @@
 
       <div class="benefit">
         <span>✓</span>
-        Compra fácil y segura
+        Atención cercana
       </div>
     </section>
 
   </main>
 
+  <!-- CATEGORÍAS DE PRODUCTOS -->
+  <section class="categories" id="categorias">
+
+    <div class="section-header">
+      <span class="section-tag">🌿 Explora nuestra tienda</span>
+
+      <h2>
+        Encuentra lo que tu bebé <span>necesita</span>
+      </h2>
+
+      <p>
+        Descubre nuestras categorías y encuentra pequeños detalles
+        llenos de ternura para cada etapa de tu bebé.
+      </p>
+    </div>
+
+    <div class="categories-grid">
+
+      <a href="#productos" class="category-card">
+        <img
+          src="https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=700&q=85"
+          alt="Ropa infantil"
+          loading="lazy"
+        >
+        <div class="category-info">
+          <h3>Ropita para bebé</h3>
+          <p>Prendas cómodas, suaves y adorables para tu pequeño.</p>
+          <span class="category-link">Descubrir colección →</span>
+        </div>
+      </a>
+
+      <a href="#productos" class="category-card">
+        <img
+          src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=85"
+          alt="Descanso del bebé"
+          loading="lazy"
+        >
+        <div class="category-info">
+          <h3>Sueño y descanso</h3>
+          <p>Detalles acogedores para sus momentos de tranquilidad.</p>
+          <span class="category-link">Descubrir colección →</span>
+        </div>
+      </a>
+
+      <a href="#productos" class="category-card">
+        <img
+          src="https://images.unsplash.com/photo-1604917877934-07d8d248d396?auto=format&fit=crop&w=700&q=85"
+          alt="Accesorios infantiles"
+          loading="lazy"
+        >
+        <div class="category-info">
+          <h3>Juguetes y accesorios</h3>
+          <p>Pequeños detalles para sus primeras aventuras.</p>
+          <span class="category-link">Descubrir colección →</span>
+        </div>
+      </a>
+
+      <a href="#productos" class="category-card">
+        <img
+          src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=700&q=85"
+          alt="Artículos infantiles"
+          loading="lazy"
+        >
+        <div class="category-info">
+          <h3>Cuidado del bebé</h3>
+          <p>Artículos para acompañar su cuidado diario.</p>
+          <span class="category-link">Descubrir colección →</span>
+        </div>
+      </a>
+
+    </div>
+
+  </section>
+
   <!-- PRODUCTOS DESTACADOS -->
   <section class="products" id="productos">
 
-    <div class="products-header">
-      <span class="products-tag">🌿 Nuestra selección</span>
+    <div class="section-header">
+      <span class="section-tag">🌿 Nuestra selección</span>
 
       <h2>
         Productos <span>destacados</span>
@@ -810,7 +1024,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=700&q=85"
-            alt="Ropa suave para bebé"
+            alt="Ropa para bebé"
             loading="lazy"
           >
           <span class="product-label">Más vendido</span>
@@ -835,7 +1049,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=85"
-            alt="Productos para el descanso del bebé"
+            alt="Artículos para el descanso"
             loading="lazy"
           >
           <span class="product-label">Favorito</span>
@@ -860,7 +1074,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1604917877934-07d8d248d396?auto=format&fit=crop&w=700&q=85"
-            alt="Accesorios infantiles"
+            alt="Accesorios para bebé"
             loading="lazy"
           >
           <span class="product-label">Especial</span>
@@ -885,7 +1099,7 @@
         <div class="product-image">
           <img
             src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=700&q=85"
-            alt="Artículos de cuidado infantil"
+            alt="Productos de cuidado infantil"
             loading="lazy"
           >
           <span class="product-label">Nuevo</span>
@@ -984,6 +1198,33 @@
 
       </div>
 
+    </div>
+
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+
+    <div class="contact-box">
+      <span class="section-tag">♡ Estamos para ayudarte</span>
+
+      <h2>¿Buscas algo especial?</h2>
+
+      <p>
+        Nos encantará ayudarte a encontrar los productos
+        ideales para tu pequeño. Escríbenos para consultar
+        disponibilidad, precios y detalles de los artículos.
+      </p>
+
+      <!-- Reemplaza el enlace de ejemplo por tu WhatsApp real -->
+      <a
+        class="contact-button"
+        href="https://wa.me/59170000000"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar por WhatsApp →
+      </a>
     </div>
 
   </section>
