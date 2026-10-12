@@ -1,12 +1,430 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pequeños Sueños | Tienda para bebés</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-suave: #AEBEAA;
+      --verde-oscuro: #536B53;
+      --verde-profundo: #344B38;
+      --crema: #F7F7F0;
+      --blanco: #FFFFFF;
+      --texto: #34443A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+    }
+
+    /* PORTADA PRINCIPAL */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--crema);
+    }
+
+    /* BARRA SUPERIOR */
+    .navbar {
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--verde-profundo);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--verde-oscuro);
+    }
+
+    .cart-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--verde-suave);
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--verde-profundo);
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .cart-button:hover {
+      background: var(--verde-suave);
+    }
+
+    /* CONTENIDO HERO */
+    .hero-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding: 45px 8% 75px;
+    }
+
+    .hero-text {
+      max-width: 570px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 17px;
+      margin-bottom: 25px;
+      background: #E4EBDD;
+      color: var(--verde-oscuro);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .hero-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      color: var(--verde-profundo);
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 span {
+      color: var(--verde-oscuro);
+    }
+
+    .hero-text p {
+      max-width: 470px;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: #68776A;
+      margin-bottom: 32px;
+    }
+
+    /* BOTONES */
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 15px 28px;
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(83, 107, 83, 0.15);
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--verde-profundo);
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 22px;
+      color: var(--verde-oscuro);
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--verde-profundo);
+    }
+
+    /* IMAGEN PRINCIPAL */
+    .hero-image {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-background {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      background: var(--verde-suave);
+      border-radius: 48% 52% 40% 60% / 44% 40% 60% 56%;
+      transform: rotate(-5deg);
+    }
+
+    .hero-image img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 490px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 48% 48% 18px 18px;
+      box-shadow: 0 20px 50px rgba(52, 75, 56, 0.12);
+    }
+
+    /* TARJETA DECORATIVA */
+    .floating-card {
+      position: absolute;
+      z-index: 2;
+      bottom: 30px;
+      left: -25px;
+      max-width: 225px;
+      padding: 17px 21px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--blanco);
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(52, 75, 56, 0.12);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #E4EBDD;
+      border-radius: 50%;
+      font-size: 1.4rem;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: var(--verde-profundo);
+      font-size: 0.95rem;
+    }
+
+    .floating-card small {
+      color: #7A897B;
+      font-size: 0.8rem;
+    }
+
+    /* BENEFICIOS */
+    .benefits {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      padding: 22px 8%;
+      background: #E8EDE3;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--verde-profundo);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .benefit span {
+      font-size: 1.2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-content {
+        gap: 35px;
+        padding: 35px 6% 60px;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .hero-image {
+        min-height: 390px;
+      }
+
+      .hero-image img {
+        height: 390px;
+      }
+
+      .floating-card {
+        left: -10px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 20px 6%;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .cart-button {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding: 30px 7% 55px;
+        gap: 35px;
+      }
+
+      .hero-text {
+        text-align: center;
+        margin: auto;
+      }
+
+      .tag {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(2.4rem, 10vw, 3.3rem);
+        letter-spacing: -1px;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+        margin: 0 auto 26px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image {
+        min-height: 340px;
+        margin: 0 10px;
+      }
+
+      .hero-image img {
+        height: 340px;
+      }
+
+      .floating-card {
+        bottom: 15px;
+        left: -12px;
+        padding: 12px;
+      }
+
+      .benefits {
+        gap: 18px;
+        padding: 25px 6%;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Binevenido a Git & Github</h1>
-    <p>En esta landign Page encotraras mis servicios de productos de bebe</p>
+
+  <main class="hero">
+
+    <nav class="navbar">
+      <a href="#" class="logo">Pequeños <span>Sueños</span> 🌿</a>
+
+      <a href="#productos" class="cart-button">
+        🛍️ Ver productos
+      </a>
+    </nav>
+
+    <section class="hero-content">
+
+      <div class="hero-text">
+        <span class="tag">🌱 Un mundo de ternura para tu bebé</span>
+
+        <h1>
+          Pequeños detalles,<br>
+          <span>grandes momentos.</span>
+        </h1>
+
+        <p>
+          Descubre productos adorables y prácticos para acompañar
+          cada etapa de tu bebé. Todo lo que necesitas para cuidarlo
+          con amor, comodidad y mucha ternura.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#productos" class="btn-primary">
+            Comprar ahora →
+          </a>
+
+          <a href="#beneficios" class="btn-secondary">
+            Conoce nuestra tienda
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-background"></div>
+
+        <img
+          src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=85"
+          alt="Bebé descansando plácidamente"
+        >
+
+        <div class="floating-card">
+          <div class="card-icon">🌿</div>
+          <div>
+            <strong>Hecho con amor</strong>
+            <small>Para los más pequeños</small>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="benefits" id="beneficios">
+      <div class="benefit">
+        <span>♡</span>
+        Productos seleccionados con cariño
+      </div>
+
+      <div class="benefit">
+        <span>✿</span>
+        Comodidad para cada etapa
+      </div>
+
+      <div class="benefit">
+        <span>✓</span>
+        Compra fácil y segura
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
